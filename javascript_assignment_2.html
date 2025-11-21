@@ -1,0 +1,29 @@
+<html>
+  <body>
+    <h3>Today Fruits</h3>
+    <ul id="fruit-list"></ul>
+
+    <hr/>
+
+    <h3>Today Vegetables</h3>
+    <ul id="veg-list"></ul>
+
+    <script>
+      
+      const fruits = ["Apple", "Banana", "Orange", "Mango", "Strawberry"];
+      const vegetables = ["Carrot", "Broccoli", "Spinach", "Tomato", "Cucumber"];
+
+      
+      console.log("Today Fruits:");
+      for (let i = 0; i < fruits.length; i++) {
+        console.log(`${i + 1}. ${fruits[i]}`);
+      }
+
+      
+      console.log("Today Vegetables:");
+      for (let i = 0; i < vegetables.length; i++) {
+        console.log(`${i + 1}. ${vegetables[i]}`);
+      }
+    </script>
+  </body>
+</html>
