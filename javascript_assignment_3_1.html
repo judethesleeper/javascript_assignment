@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Monster Detail</title>
+</head>
+
+<body>
+
+    <h3>Monster Detail</h3>
+
+    <div>Select Monster:</div>
+    <div>
+        <select id="monster-list"></select>
+    </div>
+
+    <hr/>
+
+    <div id="monster-details" style="font-size: 18px; line-height: 1.8;">
+      
+    </div>
+
+    <script>
+        const monsters = [
+            { "id": 1, "name": "Fire Dragon", "hp": 150, "exp": 85 },
+            { "id": 2, "name": "Ice Wolf", "hp": 75, "exp": 45 },
+            { "id": 3, "name": "Shadow Goblin", "hp": 40, "exp": 25 },
+            { "id": 4, "name": "Lightning Phoenix", "hp": 200, "exp": 120 },
+            { "id": 5, "name": "Earth Golem", "hp": 180, "exp": 95 },
+            { "id": 6, "name": "Poison Spider", "hp": 60, "exp": 35 },
+            { "id": 7, "name": "Wind Eagle", "hp": 90, "exp": 55 },
+            { "id": 8, "name": "Dark Skeleton", "hp": 65, "exp": 40 },
+            { "id": 9, "name": "Crystal Unicorn", "hp": 120, "exp": 75 },
+            { "id": 10, "name": "Lava Titan", "hp": 250, "exp": 150 }
+        ];
+
+        const monsterList = document.getElementById("monster-list");
+        const detailsDiv = document.getElementById("monster-details");
+
+       
+        monsters.forEach(monster => {
+            const opt = document.createElement("option");
+            opt.value = monster.id;
+            opt.textContent = monster.name;
+            monsterList.appendChild(opt);
+        });
+
+       
+        function showDetails(id) {
+            const m = monsters.find(x => x.id == id);
+            detailsDiv.innerHTML = `
+                <strong>ID:</strong> ${m.id} <br>
+                <strong>Name:</strong> ${m.name} <br>
+                <strong>HP:</strong> ${m.hp} <br>
+                <strong>EXP:</strong> ${m.exp}
+            `;
+        }
+
+       
+        monsterList.addEventListener("change", function() {
+            showDetails(this.value);
+        });
+
+        monsterList.value = monsters[0].id;
+        showDetails(monsters[0].id);
+    </script>
+
+</body>
+</html>
